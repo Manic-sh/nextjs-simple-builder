@@ -7,15 +7,15 @@ import Head from 'next/head';
 // Replace with your Public API Key
 builder.init("c782aff3c66f48acb425981b997feb10");
 
-const myObj = {
-  name: 'Ross',
-  writing: true,
-  enjoyment: 10,
-  meta: {
-    minutesWriting: 20,
-    minutesProcrastinating: 0,
-  }
-};
+// const myObj = {
+//   name: 'Ross',
+//   writing: true,
+//   enjoyment: 10,
+//   meta: {
+//     minutesWriting: 20,
+//     minutesProcrastinating: 0,
+//   }
+// };
 
 export async function getStaticProps({ params }: any) {
   // Fetch the builder content
@@ -66,7 +66,7 @@ export default function Page({ page }: any) {
         <title>{page?.data.title}</title>
       </Head>
       {/* Render the Builder page */}
-      <BuilderComponent model="page" content={page} data={{ myObj }}/>
+      <BuilderComponent model="page" content={page} />
     </>
   );
 }
