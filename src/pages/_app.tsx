@@ -107,10 +107,10 @@ Builder.registerComponent(VimeoPlayerTracking, {
 
 });
 
-const ListObj = ({builderState: {state: {myObj }}}) => {
-   <div>{console.log(myObj)}</div>
-}
+// // const ListObj = ({builderState: {state: {myObj }}}) => {
+// //    <div>{console.log(myObj)}</div>
+// // }
 
-Builder.registerComponent(ListObj, {
-   name: "List Object",
- });
+// Builder.registerComponent(ListObj, {
+//    name: "List Object",
+//  });
