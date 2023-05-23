@@ -1,11 +1,21 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react';
+import { BuilderComponent, builder } from '@builder.io/react';
 import DefaultErrorPage from 'next/error';
 import Head from 'next/head';
 
 // Replace with your Public API Key
 builder.init("c782aff3c66f48acb425981b997feb10");
+
+const myObj = {
+  name: 'Ross',
+  writing: true,
+  enjoyment: 10,
+  meta: {
+    minutesWriting: 20,
+    minutesProcrastinating: 0,
+  }
+};
 
 export async function getStaticProps({ params }: any) {
   // Fetch the builder content
@@ -41,13 +51,12 @@ export async function getStaticPaths() {
 
 export default function Page({ page }: any) {
   const router = useRouter();
-  const isPreviewing = useIsPreviewing();
 
   if (router.isFallback) {
     return <h1>Loading...</h1>
   }
 
-  if (!page && !isPreviewing) {
+  if (!page && !true) {
     return <DefaultErrorPage statusCode={404} />
   }
 
@@ -57,7 +66,7 @@ export default function Page({ page }: any) {
         <title>{page?.data.title}</title>
       </Head>
       {/* Render the Builder page */}
-      <BuilderComponent model="page" content={page} />
+      <BuilderComponent model="page" content={page} data={{ myObj }}/>
     </>
   );
 }
