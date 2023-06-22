@@ -1,11 +1,26 @@
 import { builder, BuilderComponent } from "@builder.io/react";
-import { Link } from '@components/Link/Link'
+import NextLink from 'next/link';
 
 builder.init("c782aff3c66f48acb425981b997feb10");
 
 const articlesPerPage = 30;
 
-function Blog({ articles }) {
+
+const Link: React.FC<React.AnchorHTMLAttributes<any>> = ({
+  href,
+  children,
+  ...props
+}) => {
+  return (
+    <NextLink href={href!} {...props}>
+      {children}
+    </NextLink>
+  )
+}
+
+
+
+function Blog({ articles }: any) {
   return (
       <>
       <h1 style={{fontSize: "32px", textAlign: "center"}}> Builder IO Next JS Blog </h1>
@@ -15,7 +30,7 @@ function Blog({ articles }) {
               options={{ includeRefs: true }}
             />
     <div style={{ display: "flex", gap: "2rem;", marginTop: "20px", alignItems: "center", justifyContent: "center"}}>
-      {articles.map((item, index) => (
+      {articles.map((item: any, index: number) => (
         <div style={{ display: "flex", color: "#fff"}} key={index}>
             <Link href={`/blog/${item?.data?.handle}`}>
                 <div style={{cursor: "pointer", overflow: "hidden", width: 300 }}>

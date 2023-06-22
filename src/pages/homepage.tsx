@@ -4,7 +4,7 @@ import { BuilderComponent, builder } from '@builder.io/react';
 // Replace with your Public API Key.
 builder.init("c782aff3c66f48acb425981b997feb10");
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   const homepage = await builder.get('homepage').toPromise();
 
   return {
@@ -14,7 +14,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function Page({ homepage }) {
+export default function Page({ homepage }: any) {
   return (
     <>
       {/* Put your header here. */}

@@ -12,7 +12,7 @@ import React from 'react';
 
 builder.init("c782aff3c66f48acb425981b997feb10");
 
-function BlogArticle({ article }) {
+function BlogArticle({ article } : any) {
   const isPreviewing = useIsPreviewing();
   if (!article && !isPreviewing) {
     return (
@@ -55,7 +55,7 @@ function BlogArticle({ article }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   console.log("param", params);
   const article = await builder
     .get("blog-article", {
