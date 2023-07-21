@@ -5,7 +5,7 @@ import DefaultErrorPage from 'next/error';
 import Head from 'next/head';
 
 // Replace with your Public API Key
-builder.init("3f2e4166c5a949bb8a361a63d655f7e9");
+builder.init("3ec535cf03da45b799427676882d3593");
 
 // const myObj = {
 //   name: 'Ross',
