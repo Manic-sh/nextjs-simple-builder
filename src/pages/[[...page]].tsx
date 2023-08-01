@@ -5,7 +5,7 @@ import DefaultErrorPage from 'next/error';
 import Head from 'next/head';
 
 // Replace with your Public API Key
-builder.init("3ec535cf03da45b799427676882d3593");
+builder.init("c782aff3c66f48acb425981b997feb10");
 
 // const myObj = {
 //   name: 'Ross',
@@ -21,6 +21,9 @@ export async function getStaticProps({ params }: any) {
   // Fetch the builder content
   const page = await builder
     .get('page', {
+      options: {
+        noTraverse: false,
+      },
       userAttributes: {
         urlPath: '/' + (params?.page?.join('/') || ''),
       },
