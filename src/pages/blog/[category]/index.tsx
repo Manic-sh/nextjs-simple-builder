@@ -1,7 +1,7 @@
 import { builder } from "@builder.io/react";
 import NextLink from 'next/link';
 
-builder.init("c782aff3c66f48acb425981b997feb10");
+builder.init("3f2e4166c5a949bb8a361a63d655f7e9");
 
 
 const Link: React.FC<React.AnchorHTMLAttributes<any>> = ({

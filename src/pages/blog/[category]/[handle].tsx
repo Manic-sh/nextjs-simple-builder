@@ -10,7 +10,7 @@ import DefaultErrorPage from "next/error";
 
 import React from 'react';
 
-builder.init("c782aff3c66f48acb425981b997feb10");
+builder.init("3f2e4166c5a949bb8a361a63d655f7e9");
 
 function BlogArticle({ article } : any) {
   const isPreviewing = useIsPreviewing();
