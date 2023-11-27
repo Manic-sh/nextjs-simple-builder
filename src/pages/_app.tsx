@@ -242,4 +242,58 @@ Builder.registerComponent(withChildren(CatalogContainer), {
    ],
  });
 
+type MyProps = { content: string; link: string }
 
+// Any component in your codebase
+function MyButton(props: MyProps) {
+  return <Button href={props.link}>{props.content}</Button>
+}
+
+// Register this component for use in the Visual Editor
+Builder.registerComponent(MyButton,{
+  name: 'MyButton',
+  friendlyName: "SOME GOOD NAME",
+  hideFromInsertMenu: false,
+  inputs: [
+    // 'name' is the name of your prop
+    { name: 'content', type: 'text' },
+    { name: 'link', type: 'url' },
+  ],
+)
+Builder.registerComponent("Navigation", {
+  name: "Navigation",
+  hideFromInsertMenu: true,
+  inputs: [
+    {
+      name: "UploadLogo",
+      type: "file",
+      defaultValue:
+        "https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F08ee6173b5b14ac5b5d711461c681e8e",
+    },
+    {
+      name: "NavListing",
+      type: "list",
+      defaultValue: [{ navItems: "hello" }],
+      subFields: [
+        {
+                name: 'navItems',
+                type: 'string',
+                defaultValue: "Home",
+              }
+            ],
+    },
+    {
+      name: "UrlLink",
+      type: "url",
+      defaultValue: "https://google.com",
+    },
+  ],
+});
+
+Builder.register('insertMenu', {
+  name: 'Custom Insert Components',
+  items: [
+    { name: 'Navigation' },
+    { name: 'MyButton' },
+  ],
+});
